@@ -7,12 +7,12 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#000005;overflow:hidden;color-scheme:dark;}
-#layout{display:flex;flex-direction:column;align-items:center;width:100%;height:100%;}
-#w{position:relative;flex:1;display:flex;align-items:center;justify-content:center;width:100%;}
-canvas{position:absolute;}
+#layout{position:fixed;inset:0;pointer-events:none;}
+#w{position:fixed;inset:0;pointer-events:none;}
+canvas{position:fixed;top:0;left:0;pointer-events:auto;}
 #mc{filter:drop-shadow(0 0 22px rgba(100,80,255,.55)) drop-shadow(0 0 50px rgba(60,40,200,.3));}
-#label{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:rgba(80,220,255,.2);pointer-events:none;white-space:nowrap;}
-#panel{width:100%;flex-shrink:0;background:rgba(0,6,16,.92);border-top:1px solid rgba(0,180,255,.12);padding:10px 24px 13px;display:flex;flex-direction:column;gap:9px;}
+#label{position:fixed;top:10px;left:50%;transform:translateX(-50%);font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:rgba(80,220,255,.2);pointer-events:none;white-space:nowrap;}
+#panel{position:fixed;bottom:0;left:0;right:0;background:rgba(0,4,12,.8);border-top:1px solid rgba(0,180,255,.18);padding:10px 24px 13px;display:flex;flex-direction:column;gap:9px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:10;pointer-events:auto;}
 #presets{display:flex;gap:8px;align-items:center;}
 .pre-label{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,180,255,.3);margin-right:4px;white-space:nowrap;}
 .pbtn{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,200,255,.55);background:transparent;border:1px solid rgba(0,180,255,.18);padding:5px 13px;cursor:pointer;border-radius:2px;position:relative;overflow:hidden;white-space:nowrap;user-select:none;-webkit-user-select:none;transition:color .15s,border-color .15s,background .15s;}
@@ -230,13 +230,11 @@ gl.disable(gl.DEPTH_TEST);gl.clearColor(0,0,0,1);
 
 // ── Resize ───────────────────────────────────────────────────
 function resizeCanvas(){
-  const S=getSize();
-  mc.width=S*DPR;mc.height=S*DPR;
-  mc.style.width=S+'px';mc.style.height=S+'px';
-  mc.style.left=((wEl.offsetWidth-S)/2)+'px';
-  mc.style.top=((wEl.offsetHeight-S)/2)+'px';
-  gl.viewport(0,0,S*DPR,S*DPR);
-  gl.uniformMatrix4fv(UL.uProj,false,m4p(52,1,.1,100));
+  const W=window.innerWidth,H=window.innerHeight;
+  mc.width=W*DPR;mc.height=H*DPR;
+  mc.style.width=W+'px';mc.style.height=H+'px';
+  gl.viewport(0,0,W*DPR,H*DPR);
+  gl.uniformMatrix4fv(UL.uProj,false,m4p(52,W/H,.1,100));
 }
 resizeCanvas();
 window.addEventListener('resize',resizeCanvas);
