@@ -14,7 +14,7 @@ canvas{position:fixed;top:0;left:0;pointer-events:auto;}
 #label{position:fixed;top:10px;left:50%;transform:translateX(-50%);font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:rgba(80,220,255,.2);pointer-events:none;white-space:nowrap;}
 #panel{position:fixed;bottom:0;left:0;right:0;background:rgba(0,4,12,.8);border-top:1px solid rgba(0,180,255,.18);padding:10px 24px 22px;display:flex;flex-direction:column;gap:9px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:10;pointer-events:auto;}
 #presets{display:flex;gap:8px;align-items:center;}
-.pre-label{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,180,255,.3);margin-right:4px;white-space:nowrap;}
+.pre-label{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:rgba(0,200,255,.6);margin-right:4px;white-space:nowrap;}
 .pbtn{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,200,255,.55);background:transparent;border:1px solid rgba(0,180,255,.18);padding:5px 13px;cursor:pointer;border-radius:2px;position:relative;overflow:hidden;white-space:nowrap;user-select:none;-webkit-user-select:none;transition:color .15s,border-color .15s,background .15s;}
 .pbtn:hover{border-color:rgba(0,220,255,.5);color:rgba(0,230,255,.9);background:rgba(0,180,255,.07);}
 .pbtn.active{background:rgba(0,200,255,.15);border-color:rgba(0,220,255,.65);color:#fff;text-shadow:0 0 8px rgba(0,220,255,.5);}
@@ -24,15 +24,15 @@ canvas{position:fixed;top:0;left:0;pointer-events:auto;}
 #colors{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 20px;}
 .color-ctrl{display:flex;flex-direction:column;gap:4px;}
 .color-head{display:flex;justify-content:space-between;align-items:center;}
-.color-name{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,200,255,.45);}
+.color-name{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:rgba(0,200,255,.7);}
 .swatch{width:22px;height:8px;border-radius:2px;border:1px solid rgba(255,255,255,.15);}
 input.hue{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;cursor:pointer;outline:none;background:linear-gradient(to right,hsl(0,100%,50%),hsl(30,100%,50%),hsl(60,100%,50%),hsl(90,100%,50%),hsl(120,100%,50%),hsl(150,100%,50%),hsl(180,100%,50%),hsl(210,100%,50%),hsl(240,100%,50%),hsl(270,100%,50%),hsl(300,100%,50%),hsl(330,100%,50%),hsl(360,100%,50%));}
 input.hue::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.35);cursor:pointer;box-shadow:0 0 4px rgba(0,0,0,.5);}
 #sliders{display:grid;grid-template-columns:repeat(6,1fr);gap:8px 20px;}
 .ctrl{display:flex;flex-direction:column;gap:4px;}
 .ctrl-head{display:flex;justify-content:space-between;align-items:baseline;}
-.ctrl-name{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:rgba(0,200,255,.45);}
-.ctrl-val{font-family:'Courier New',monospace;font-size:9px;color:rgba(0,255,180,.6);min-width:30px;text-align:right;}
+.ctrl-name{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:rgba(0,200,255,.7);}
+.ctrl-val{font-family:'Courier New',monospace;font-size:10px;color:rgba(0,255,180,.75);min-width:30px;text-align:right;}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(0,180,255,.15);outline:none;border-radius:2px;cursor:pointer;}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:rgba(0,210,255,.8);box-shadow:0 0 5px rgba(0,200,255,.4);cursor:pointer;}
 input[type=range]:hover::-webkit-slider-thumb{background:#fff;box-shadow:0 0 9px rgba(0,200,255,.7);}
@@ -52,7 +52,7 @@ input[type=range]:hover::-webkit-slider-thumb{background:#fff;box-shadow:0 0 9px
       <button class="pbtn" data-preset="pulse">PULSE</button>
       <button class="pbtn" data-preset="drift">DRIFT</button>
       <button class="pbtn" data-preset="storm">STORM</button>
-      <span class="pre-label" style="margin-left:8px;font-size:8px;opacity:.5;">hold to save</span>
+      <span class="pre-label" style="margin-left:8px;">hold to save</span>
     </div>
     <div id="colors">
       <div class="color-ctrl"><div class="color-head"><span class="color-name">COLOR A</span><div class="swatch" id="sw-A"></div></div><input class="hue" id="h-A" type="range" min="0" max="359" value="145"></div>
