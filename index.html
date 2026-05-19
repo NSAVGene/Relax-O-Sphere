@@ -92,8 +92,8 @@ let PRESETS={
 const panel=document.getElementById('panel'),wEl=document.getElementById('w');
 const mc=document.getElementById('mc');
 const DPR=Math.min(window.devicePixelRatio||1,2);
-const gl=mc.getContext('webgl',{alpha:true,preserveDrawingBuffer:true,antialias:false})||
-         mc.getContext('experimental-webgl',{alpha:true,preserveDrawingBuffer:true,antialias:false});
+const gl=mc.getContext('webgl',{alpha:true,preserveDrawingBuffer:true,antialias:false,premultipliedAlpha:false})||
+         mc.getContext('experimental-webgl',{alpha:true,preserveDrawingBuffer:true,antialias:false,premultipliedAlpha:false});
 if(!gl){document.getElementById('label').textContent='WebGL not available';return;}
 
 function getSize(){const ph=panel.offsetHeight||110;return Math.max(Math.min(window.innerWidth,window.innerHeight-ph),300);}
