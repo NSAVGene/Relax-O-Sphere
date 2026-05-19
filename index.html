@@ -81,7 +81,7 @@ function m4m(a,b){const o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r
 
 // ── Presets ───────────────────────────────────────────────────
 let PRESETS={
-  hypnotic:{rot:0,   disp:0,  breath:.32,bright:2,  size:1.2,cspd:.012,hA:145,hB:272,hC:253},
+  hypnotic:{rot:0,   disp:.51,breath:.29,bright:3.2, size:2.4,cspd:.088,hA:145,hB:272,hC:253},
   orb:     {rot:.15, disp:0,  breath:.12,bright:2.8, size:1.8,cspd:.015,hA:145,hB:272,hC:253},
   pulse:   {rot:0,   disp:.18,breath:.4, bright:3.2, size:1.4,cspd:.006,hA:150,hB:280,hC:260},
   drift:   {rot:.12, disp:.26,breath:.09,bright:2,   size:1,  cspd:.018,hA:145,hB:272,hC:253},
@@ -315,6 +315,7 @@ function loop(){
   gl.drawArrays(gl.POINTS,0,NT);
 
 }
+loadPreset('hypnotic');
 loop();
 })();
 </script>
